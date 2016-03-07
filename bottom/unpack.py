@@ -259,6 +259,11 @@ def unpack_command(msg):
         kwargs["info"] = params[1:-1]
         kwargs["message"] = params[-1]
 
+    # additions iivvoo
+    elif command in ["RPL_NAMREPLY"]:
+        kwargs["channel"] = params[2]
+        kwargs["names"] = params[3].split()
+
     else:
         raise ValueError("Unknown command '{}'".format(command))
 
