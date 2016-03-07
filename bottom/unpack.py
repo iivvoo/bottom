@@ -264,6 +264,16 @@ def unpack_command(msg):
         kwargs["channel"] = params[2]
         kwargs["names"] = params[3].split()
 
+    elif command in ["KICK"]:
+        nickmask(prefix, kwargs)
+        kwargs["channel"] = params[0]
+        kwargs["target"] = params[1]
+
+        if(len(params) > 2):
+            kwargs["message"] = params[-1]
+        else:
+            kwargs["message"] = ''
+
     else:
         raise ValueError("Unknown command '{}'".format(command))
 
