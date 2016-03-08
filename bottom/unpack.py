@@ -261,6 +261,7 @@ def unpack_command(msg):
 
     # additions iivvoo
     elif command in ["RPL_NAMREPLY"]:
+        # params[1] is * for private, = for public channels
         kwargs["channel"] = params[2]
         kwargs["names"] = params[3].split()
 
