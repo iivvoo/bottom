@@ -275,6 +275,9 @@ def unpack_command(msg):
         else:
             kwargs["message"] = ''
 
+    elif command == "NICK":
+        nickmask(prefix, kwargs)
+        kwargs['newnick'] = params[0]
     else:
         raise ValueError("Unknown command '{}'".format(command))
 
